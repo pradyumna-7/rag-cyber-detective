@@ -1,5 +1,8 @@
 const puppeteer = require('puppeteer');
+const fs = require('fs');
 
+
+let count = 0;
 const scrapeWebsite = async (req, res) => {
     const { url } = req.body;
     const browser = await puppeteer.launch({
@@ -27,6 +30,8 @@ const scrapeWebsite = async (req, res) => {
             console.log(pageText);
             await page.close();
             await browser.close();
+            count = count + 1
+            fs.appendFileSync(`text ${count}.txt`, pageText);
             return res.json({
                 success: 'Website scraped successfully',
             });
