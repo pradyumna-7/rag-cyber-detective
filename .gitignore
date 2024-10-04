@@ -1,2 +1,11 @@
 server/node_modules
 client/node_modules
+python-service/Dockerfile
+python-service/.dockerignore
+docker-compose.yml
+server/Dockerfile
+client/Dockerfile
+server/.dockerignore
+client/.dockerignore
+server/.env
+
